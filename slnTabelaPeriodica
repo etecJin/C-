@@ -1,0 +1,198 @@
+        public string NomeElemento(string elementos)//Recebo String e Retorno String
+        {
+            string varElement;
+            varElement = "";
+
+            switch (elementos)
+            {
+
+                case "Li":
+                    varElement = "Litio";
+                    break;
+
+                case "Na":
+                    varElement = "Sodio";
+                    break;
+
+                case "K":
+                    varElement = "Potassio";
+                    break;
+
+                case "Rb":
+                    varElement = "Rubidio";
+                    break;
+
+                case "Cs":
+                    varElement = "Cesio";
+                    break;
+
+                case "Fr":
+                    varElement = "Francio";
+                    break;
+
+
+                case "Sair":
+                    MessageBox.Show("Obrigado por Usar a tabela");
+                    break;
+
+                default:
+                    MessageBox.Show("Valor Invalido");//Caso algum erro de valor
+                    break;
+            }
+            return varElement;//Retorno de String
+        }
+
+        public string NumeroAtom(string varElement)//Recebo String e Retorno String
+        {
+            string varAtom;//declaro variavel
+            varAtom = "";//inicio a variavel para o return
+
+            if (varElement == "Litio")
+            {
+                varAtom = "3";//passando valor como string na variavel
+            }
+            else if (varElement == "Sodio")
+            {
+                varAtom = "11";
+            }
+            else if(varElement == "Potassio")
+            {
+                varAtom = "19";
+            }
+            else if(varElement == "Rubidio")
+            {
+                varAtom = "37";
+            }
+            else if(varElement == "Cesio"){
+                varAtom = "55";
+            }
+            else if(varElement == "Francio"){
+                varAtom = "87";
+            }
+            else
+            {
+                MessageBox.Show("Elemento invalido");//caso algum erro
+            }
+            return varAtom;//Retorno de String
+        }
+
+        public string NumeroMassa(string varElement)//Recebo String e Retorno String
+        {
+            string varMassa;
+            varMassa = "";
+
+            if (varElement == "Litio")
+            {
+                varMassa = "7";
+            }
+            else if(varElement == "Sodio"){
+                varMassa = "23";
+            }
+            else if(varElement == "Potassio"){
+                varMassa = "39";
+            }
+            else if(varElement == "Rubidio"){
+                varMassa = "85";
+            }
+            else if(varElement == "Cesio"){
+                varMassa = "133";
+            }
+            else if(varElement == "Francio"){
+                varMassa = "233";
+            }
+            else
+            {
+                MessageBox.Show("Elemento invalido");//caso algum erro
+            }
+            return varMassa;//Retorno de String
+        }
+
+        private void btnLi_Click(object sender, EventArgs e)
+        {
+
+            double numMass = 0, numAtom = 0, result = 0;//Declaro Variaveis para Converter
+
+            numAtom = Convert.ToDouble(NumeroAtom("Litio"));//Convertendo para Double
+            numMass = Convert.ToDouble(NumeroMassa("Litio"));
+            result = numMass - numAtom;//calculando
+
+            txbNome.Text = NomeElemento("Li");//mandando argumento para retorno do metodo
+            txbAtom.Text = NumeroAtom("Litio");
+            txbMassa.Text = NumeroMassa("Litio");
+            txbNeutro.Text = Convert.ToString(result);//Exibindo e Convertendo para String
+
+        }
+
+        private void btnNa_Click(object sender, EventArgs e)
+        {
+            double numMass = 0, numAtom = 0, result = 0;//Declaro Variaveis para Converter
+
+            numAtom = Convert.ToDouble(NumeroAtom("Sodio"));//Convertendo para Double
+            numMass = Convert.ToDouble(NumeroMassa("Sodio"));
+            result = numMass - numAtom;//calculando
+
+            txbNome.Text = NomeElemento("Na");
+            txbAtom.Text = NumeroAtom("Sodio");
+            txbMassa.Text = NumeroMassa("Sodio");
+            txbNeutro.Text = Convert.ToString(result);//Exibindo e Convertendo para String
+        }
+
+        private void btnK_Click(object sender, EventArgs e)
+        {
+            double numMass = 0, numAtom = 0, result = 0;//Declaro Variaveis para Converter
+
+            numAtom = Convert.ToDouble(NumeroAtom("Potassio"));//Convertendo para Double
+            numMass = Convert.ToDouble(NumeroMassa("Potassio"));
+            result = numMass - numAtom;//calculando
+
+            txbNome.Text = NomeElemento("K");
+            txbAtom.Text = NumeroAtom("Potassio");
+            txbMassa.Text = NumeroMassa("Potassio");
+            txbNeutro.Text = Convert.ToString(result);//Exibindo e Convertendo para String
+        }
+
+        private void btnRb_Click(object sender, EventArgs e)
+        {
+            double numMass = 0, numAtom = 0, result = 0;//Declaro Variaveis para Converter
+
+            numAtom = Convert.ToDouble(NumeroAtom("Rubidio"));//Convertendo para Double
+            numMass = Convert.ToDouble(NumeroMassa("Rubidio"));
+            result = numMass - numAtom;//calculando
+
+            txbNome.Text = NomeElemento("Rb");
+            txbAtom.Text = NumeroAtom("Rubidio");
+            txbMassa.Text = NumeroMassa("Rubidio");
+            txbNeutro.Text = Convert.ToString(result);//Exibindo e Convertendo para String
+        }
+
+        private void btnCs_Click(object sender, EventArgs e)
+        {
+            double numMass = 0, numAtom = 0, result = 0;//Declaro Variaveis para Converter
+
+            numAtom = Convert.ToDouble(NumeroAtom("Cesio"));//Convertendo para Double
+            numMass = Convert.ToDouble(NumeroMassa("Cesio"));
+            result = numMass - numAtom;//calculando
+
+            txbNome.Text = NomeElemento("Cs");
+            txbAtom.Text = NumeroAtom("Cesio");
+            txbMassa.Text = NumeroMassa("Cesio");
+            txbNeutro.Text = Convert.ToString(result);//Exibindo e Convertendo para String
+        }
+
+        private void btnFr_Click(object sender, EventArgs e)
+        {
+            double numMass = 0, numAtom = 0, result = 0;//Declaro Variaveis para Converter
+
+            numAtom = Convert.ToDouble(NumeroAtom("Francio"));//Convertendo para Double
+            numMass = Convert.ToDouble(NumeroMassa("Francio"));
+            result = numMass - numAtom;//calculando
+
+            txbNome.Text = NomeElemento("Fr");
+            txbAtom.Text = NumeroAtom("Francio");
+            txbMassa.Text = NumeroMassa("Francio");
+            txbNeutro.Text = Convert.ToString(result);//Exibindo e Convertendo para String
+        }
+
+
+    }
+}
