@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace prjMaiorNumero
+{
+    public partial class frmMain : Form
+    {
+        public frmMain()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalcula_Click(object sender, EventArgs e)
+        {
+            double numA, numB, numC;
+
+            numA = Convert.ToDouble(txbNumA.Text);
+            numB = Convert.ToDouble(txbNumB.Text);
+            numC = Convert.ToDouble(txbNumC.Text);
+
+            if(numA>numB && numA>numC){
+                txbNumA.Text = "Maior:"+numA;
+                txbNumB.Text = "Numero Menor A";
+                txbNumC.Text = "Menor que A";
+            }else if(numB>numA && numB>numC){
+                txbNumA.Text = "Menor que B";
+                txbNumB.Text = "Maior: "+numB;
+                txbNumC.Text = "Menor que B";
+            }else if(numC>numA && numC>numB){
+                txbNumA.Text = "Menor que C";
+                txbNumB.Text = "Menor que C";
+                txbNumC.Text = "Maior: "+numC;
+            }else{
+                MessageBox.Show("Numeros Invalidos");
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txbNumA.Text = "";
+            txbNumB.Text = "";
+            txbNumC.Text = "";
+        }
+
+    }
+}
