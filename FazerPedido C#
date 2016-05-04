@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace prjFazerPedido
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        double choop, petisco, refeicao, parcial, taxa, pagar;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txbNumMesa.Text = "1";//So colocando numero na mesa 
+            txbChopp.ReadOnly = true;//Bloqueio a caixa de texto
+            txbPetisco.ReadOnly = true;//Bloqueio a caixa de texto
+            txbRefeicao.ReadOnly = true;//Bloqueio a caixa de texto
+        }
+
+        private void cbChop_CheckedChanged(object sender, EventArgs e)
+        {
+            txbChopp.ReadOnly = false;//Desbloqueio a caixa de texto quando Marco o CheckBox
+        }
+
+        private void cbPetisco_CheckedChanged(object sender, EventArgs e)
+        {
+            txbPetisco.ReadOnly = false;//Desbloqueio a caixa de texto quando Marco o CheckBox
+        }
+
+        private void cbbRefeicao_CheckedChanged(object sender, EventArgs e)
+        {
+            txbRefeicao.ReadOnly = false;//Desbloqueio a caixa de texto quando Marco o CheckBox
+        }
+
+        private void btnVerifica_Click(object sender, EventArgs e)
+        {
+            
+
+            if(cbChop.Checked == true)//Verifico se esta marcado o CheckBox
+            choop = (Convert.ToDouble(txbChopp.Text)*4.50);//dou o valor do Chopp vezes o numero da caixa de texto
+
+            if (cbPetisco.Checked == true)//Verifico se esta marcado o CheckBox
+                petisco = (Convert.ToDouble(txbPetisco.Text) * 7.50);//dou o valor do petisco vezes o numero da caixa de texto
+
+            if (cbbRefeicao.Checked == true)//Verifico se esta marcado o CheckBox
+                refeicao = (Convert.ToDouble(txbRefeicao.Text) * 15.50);//dou o valor do refeicao vezes o numero da caixa de texto
+
+            parcial = choop + petisco + refeicao;//calculo o valor parcial
+            txbParcial.Text = Convert.ToString(parcial);//converto e exibo na caixa de texto
+
+            taxa = (parcial * 8) / 100;//calculo o valor da taxa
+            txbTaxa.Text = Convert.ToString(taxa);//converto e exibo na caixa de texto
+            pagar = parcial + taxa;//calculo o valor a pagar
+            txbPagar.Text = Convert.ToString(pagar);//converto e exibo na caixa de texto
+        }
+
+
+    }
+}
