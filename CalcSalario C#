@@ -1,0 +1,64 @@
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace prjCalcSalario
+{
+    public partial class frmMain : Form
+    {
+        string nome;
+        double salBruto, salReceber, valVendas;
+
+
+        public frmMain()
+        {
+            InitializeComponent();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            txbValVendas.ReadOnly = true;//bloqueio de caixa de texto
+        }
+        private void rbtnVendedor_CheckedChanged(object sender, EventArgs e)
+        {
+            txbValVendas.ReadOnly = false;//desbloqueio da caixa de texto
+        }
+
+        private void rbtnOutro_CheckedChanged(object sender, EventArgs e)
+        {
+            txbValVendas.ReadOnly = false;
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+
+            salBruto = System.Convert.ToDouble(txbSalBruto.Text);
+
+            if (rbtnVendedor.Checked == true)//verificando se esta marcado
+            {
+                valVendas = System.Convert.ToDouble(txbValVendas.Text);//converte para double
+                salReceber = ((valVendas * 10) / 100) + salBruto;//faz o calculo
+                txbSalReceber.Text = System.Convert.ToString(salReceber);//converto e exibo
+
+            }
+
+        }
+
+        private void rbtnAnalista_CheckedChanged(object sender, EventArgs e)
+        {
+            salBruto = System.Convert.ToDouble(txbSalBruto.Text);
+
+            if (rbtnAnalista.Checked == true)
+            {
+                valVendas = System.Convert.ToDouble(txbValVendas.Text);
+                salReceber = ((valVendas * 20) / 100) + salBruto;
+                txbSalReceber.Text = System.Convert.ToString(salReceber);
+
+            }
+        }
+
+    }
+}
