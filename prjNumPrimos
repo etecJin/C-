@@ -1,0 +1,23 @@
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+
+            int num =Convert.ToInt32(txbNumero.Text);//Declaro Variavel,Converto String para Int
+            string resultado = num.ToString();//Declaro e Converto
+
+            try//Para tratar erros
+            {
+                for(int i = 2; i < num; i++)//For para testar o numero
+                {
+                    int resto = num % i;//Recebe o resto do Calculo
+                    if (resto == 0)//Valida se resto é 0
+                        resultado = num + "não é um numero primo";//Resultado
+                    else
+                        resultado = num + "é um numero primo";//Resultado Oposto
+                }//Fecha For
+            }
+            catch (Exception e)
+            {
+                txbResultado.Text = "Erro!";
+            }
+            
+        }
