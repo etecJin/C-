@@ -1,0 +1,27 @@
+        private void btnIMC_Click(object sender, EventArgs e)
+        {
+            double Altura, Peso, IMC;//Variaveis para receber os valores numericos
+            String resultado;//Variavel para exibição da frase de resultado
+
+            Altura = Convert.ToDouble(txbAltura.Text);//Recebendo e Convertendo o Texto para numeros
+            Peso = Convert.ToDouble(txbPeso.Text);//Recebendo e Convertendo o Texto para numeros
+
+            IMC = (Peso / (Altura * Altura));//Fazendo o Calculo do IMC
+
+            if (IMC < 18.5)//Verificando o Numero de IMC e Validando o Resultado.
+                resultado = "Peso abaixo do Normal";//Retornando a Frase de Resultado
+            else if (IMC == 18.5 || IMC == 25)
+                resultado = "Peso Normal";
+            else if (IMC > 25 || IMC == 30)
+                resultado = "Sobre Peso";
+            else if (IMC > 30 || IMC == 35)
+                resultado = "grau de Obesidade I";
+            else if (IMC > 35 || IMC == 40)
+                resultado = "Grau de Obesidade II";
+            else
+                resultado = "Grau de Obdesidade III";
+
+            txbIMC.Text = Convert.ToString(IMC);//Enviando o Resultado do Calculo
+            lblIMC.Text = resultado;//Exibindo a Frase de resultado
+        }
+    }
